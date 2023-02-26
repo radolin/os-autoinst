@@ -52,7 +52,7 @@ sub do_read
         my $read = $self->ssh_channel->read($buffer, $args{max_size});
         if (defined($read)) {
             $_[1] = $buffer;
-            print {$self->{loghandle}} $buffer if $self->{loghandle};
+            print {$self->{loghandle}} "rin:${buffer}" if $self->{loghandle};
             return $read;
         }
 
